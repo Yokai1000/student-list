@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  website:
+          image: php:apache
+          depends_on:
+                  - API
+          ports:
+                  - 80:80
+                  - 443:443
+          environment:
+                  - USERNAME=toto
+                  - PASSWORD=python
+          volumes:
+                  - ./website:/var/www/html
+
+  API:
+          image: local_simple_api
+          expose:
+                  - 5000
+          volumes:
+                  - ./simple_api/student_age.json:/data/student_age.json
