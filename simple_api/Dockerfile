@@ -1,7 +1,7 @@
 FROM python:2.7-stretch
 MAINTAINER 295989@supinfo.com
 RUN apt-get update -y && apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2-dev libssl-dev -y
-RUN pip3 install flask flask_httpauth flask_simpleldap python-dotenv
+RUN pip install flask flask_httpauth flask_simpleldap python-dotenv
 RUN ["mkdir", "/data"]
 VOLUME ["/data"]
 COPY ./student_age.py /
