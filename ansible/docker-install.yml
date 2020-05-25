@@ -2,7 +2,7 @@
   gather_facts: No
   hosts: app-server
   become: true
-  
+
   pre_tasks:
     - name: Install epel-release
       yum:
