@@ -1,0 +1,10 @@
+- hosts: app-server
+  become: true
+  tasks:
+    - name: Deploy student-list 
+      docker_container:
+        name: dirane/jenkins-docker-ansible-clair 
+        image: simple_api:1.1
+        state: started
+        ports:
+          - "7070:7070"
