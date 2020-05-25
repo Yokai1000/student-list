@@ -1,10 +1,21 @@
 - hosts: app-server
   become: true
   tasks:
-    - name: Deploy student-list 
+    - name: Deploy nginx
       docker_container:
-        name: dirane/jenkins-docker-ansible-clair 
-        image: simple_api:1.1
+        name: nginx
+        hostname: nginx 
+        image: dirane/4dvop-nginx
         state: started
         ports:
-          - "7070:7070"
+          - "7070:80"
+    - name: Deploy student-list
+      docker_container:
+        name: API
+        hostname: centos
+        image: 295989/simple_api:1.1
+        state: started
+        links:
+          - nginx:nginx
+        exposed_ports:
+          - 5000

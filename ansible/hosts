@@ -3,6 +3,4 @@
 
 [all:vars]
 ansible_sudo_pass=Centos590000
-ansible_connection=ssh
 ansible_ssh_pass=Centos590000
-
